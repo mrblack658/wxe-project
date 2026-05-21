@@ -1,0 +1,67 @@
+@define-color bg0 #282828;
+@define-color bg1 #3c3836;
+@define-color fg0 #fbf1c7;
+@define-color red #fb4934;
+@define-color green #b8bb26;
+@define-color yellow #fabd2f;
+@define-color blue #83a598;
+@define-color purple #d3869b;
+@define-color aqua #8ec07c;
+@define-color orange #fe8019;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Roboto", sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: transparent; /* Делаем модули «парящими» */
+}
+
+/* Общий стиль для всех модулей */
+#workspaces, #clock, #cpu, #memory, #battery, #network, #pulseaudio, #tray {
+    background-color: @bg0;
+    color: @fg0;
+    padding: 0 12px;
+    margin: 0 4px;
+    border-radius: 8px;
+    border-bottom: 2px solid @bg1; /* Небольшой эффект объема */
+}
+
+/* Уникальные цвета для каждого блока */
+#workspaces button {
+    color: @fg0;
+    padding: 0 5px;
+}
+
+#workspaces button.focused {
+    color: @yellow;
+}
+
+#clock {
+    color: @orange;
+    font-weight: bold;
+}
+
+#cpu { color: @red; }
+#memory { color: @purple; }
+#battery { color: @green; }
+#network { color: @aqua; }
+#pulseaudio { color: @blue; }
+
+/* Красивое мигание при низком заряде */
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @fg0;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to { background-color: @bg0; color: @red; }
+}

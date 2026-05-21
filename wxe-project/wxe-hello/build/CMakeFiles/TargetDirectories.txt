@@ -1,0 +1,3 @@
+/home/mrblack/wxe-project/wxe-hello/build/CMakeFiles/hyprland-hello.dir
+/home/mrblack/wxe-project/wxe-hello/build/CMakeFiles/edit_cache.dir
+/home/mrblack/wxe-project/wxe-hello/build/CMakeFiles/rebuild_cache.dir

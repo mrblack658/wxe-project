@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/hyprland-hello.dir/link.d "CMakeFiles/hyprland-hello.dir/main.cpp.o" -o hyprland-hello  /usr/lib64/libQt6Quick.so.6.10.3 /usr/lib64/libQt6OpenGL.so.6.10.3 /usr/lib64/libQt6Gui.so.6.10.3 /usr/lib64/libGLX.so /usr/lib64/libOpenGL.so /usr/lib64/libQt6Qml.so.6.10.3 /usr/lib64/libQt6Network.so.6.10.3 /usr/lib64/libQt6Core.so.6.10.3

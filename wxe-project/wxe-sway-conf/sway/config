@@ -1,0 +1,127 @@
+# Default config for Sway
+
+set $mod Mod4
+
+# Font
+font pango:monospace 10
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod normal
+
+# Start a terminal
+
+set $term foot
+bindsym $mod+t exec kitty
+
+# dolphin
+
+bindsym $mod+e exec dolphin
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Start launcher
+set $menu wofi
+bindsym $mod+d exec wofi --show drun --hide-on-escape
+
+# Reload config
+bindsym $mod+Shift+c reload
+
+# Exit sway
+bindsym $mod+insert exec "swaymsg exit"
+
+# Focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move windows
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Workspaces
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Layout
+bindsym $mod+b splith
+bindsym $mod+v splitv
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+space layout toggle split
+
+# Fullscreen
+bindsym $mod+f fullscreen
+
+# Floating
+bindsym $mod+Shift+space floating toggle
+
+# Resize mode
+mode "resize" {
+    bindsym h resize shrink width 10px
+    bindsym j resize grow height 10px
+    bindsym k resize shrink height 10px
+    bindsym l resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# waybar
+exec waybar
+
+# laungle
+input * {
+ xkb_layout "us,ru"
+ xkb_options "grp:alt_shift_toggle"
+ }
+# wallpaper
+
+exec_always mpvpaper '*' --mpv-options="--loop" /home/mrblack/Загрузки/pixel_sakura.gif
+
+# notify
+
+exec_always mako
+exec_always notify-send "good efternoon boss"
+
+# custom
+
+client.focused #fabd2f #282828 #fbf1c7 #fabd2f #fabd2f
+
+# wallpaper mod
+
+bindsym $mod+p exec python /home/mrblack/.config/sway/script/wall.py
+

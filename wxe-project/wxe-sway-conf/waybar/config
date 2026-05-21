@@ -1,0 +1,60 @@
+{
+    "player": "top",
+    "position": "top",
+    "margin-top": 8,
+    "margin-left": 15,
+    "margin-right": 15,
+    "spacing": 5,
+    "modules-left": ["sway/workspaces", "sway/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "pda", "battery", "tray"],
+
+    "sway/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "focused": "",
+            "default": ""
+        }
+    },
+    "clock": {
+        "format": "   {:%H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>"
+    },
+    "cpu": { "format": " {usage}%" },
+    "memory": { "format": " {used}GB" },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": { "format-wifi": " {essid}" },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-icons": ["", "", ""]
+    }
+}
+
+"custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+        "notification": "<span foreground='red'><sup>•</sup></span>",
+        "none": "",
+        "dnd-notification": "<span foreground='red'><sup>•</sup></span>",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='red'><sup>•</sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "<span foreground='red'><sup>•</sup></span>",
+        "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "escape": true
+    "custom/pda": {
+    "format": "  ", 
+    "on-click": "foot --title='PDA_WINDOW' --app-id='pda_window' bash -c '~/.local/bin/pda'",
+    "tooltip": false
+},
+},
